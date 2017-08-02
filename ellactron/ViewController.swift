@@ -20,6 +20,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    // MARK: Properties
+    @IBOutlet weak var textUsername: UITextField!
+    @IBOutlet weak var textPassword: UITextField!
+    
+    // mark: Actions
+    @IBAction func btnSignIn(_ sender: UIButton) {
+    }
+    
+    @IBAction func btnSignUp(_ sender: UIButton) {
+    }
 }
 

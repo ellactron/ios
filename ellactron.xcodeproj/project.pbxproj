@@ -14,8 +14,12 @@
 		C3B0971A1F2827FF006DB9FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3B097181F2827FF006DB9FC /* LaunchScreen.storyboard */; };
 		C3B097251F2827FF006DB9FC /* ellactronTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B097241F2827FF006DB9FC /* ellactronTests.swift */; };
 		C3B097301F2827FF006DB9FC /* ellactronUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0972F1F2827FF006DB9FC /* ellactronUITests.swift */; };
-		C3B097401F282A26006DB9FC /* banner.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B0973F1F282A26006DB9FC /* banner.png */; };
-		C3B097421F282EA8006DB9FC /* ic_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B097411F282EA8006DB9FC /* ic_icon.png */; };
+		C3B097481F291B6D006DB9FC /* banner.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B097471F291B6D006DB9FC /* banner.png */; };
+		C3B0974A1F291E9B006DB9FC /* ic_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B097491F291E9B006DB9FC /* ic_icon.png */; };
+		C3B0974F1F2ADCD2006DB9FC /* service.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3B0974E1F2ADCD2006DB9FC /* service.plist */; };
+		C3B097551F2AE090006DB9FC /* ApplicationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B097541F2AE090006DB9FC /* ApplicationConfiguration.swift */; };
+		C3B097651F301CFB006DB9FC /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0974C1F2AC1E4006DB9FC /* RestClient.swift */; };
+		C3B097671F301DC0006DB9FC /* Exceptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0975B1F30191C006DB9FC /* Exceptions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +53,12 @@
 		C3B0972B1F2827FF006DB9FC /* ellactronUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ellactronUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B0972F1F2827FF006DB9FC /* ellactronUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ellactronUITests.swift; sourceTree = "<group>"; };
 		C3B097311F2827FF006DB9FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3B0973F1F282A26006DB9FC /* banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = banner.png; path = ../../Downloads/banner.png; sourceTree = "<group>"; };
-		C3B097411F282EA8006DB9FC /* ic_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_icon.png; path = ../../Downloads/ic_icon.png; sourceTree = "<group>"; };
+		C3B097471F291B6D006DB9FC /* banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = banner.png; path = ellactron/Assets.xcassets/banner.png; sourceTree = "<group>"; };
+		C3B097491F291E9B006DB9FC /* ic_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_icon.png; path = ellactron/Assets.xcassets/ic_icon.png; sourceTree = "<group>"; };
+		C3B0974C1F2AC1E4006DB9FC /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestClient.swift; path = RestClient/RestClient.swift; sourceTree = "<group>"; };
+		C3B0974E1F2ADCD2006DB9FC /* service.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = service.plist; sourceTree = "<group>"; };
+		C3B097541F2AE090006DB9FC /* ApplicationConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApplicationConfiguration.swift; path = Configuration/ApplicationConfiguration.swift; sourceTree = "<group>"; };
+		C3B0975B1F30191C006DB9FC /* Exceptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Exceptions.swift; path = Errors/Exceptions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,12 +110,16 @@
 		C3B0970E1F2827FF006DB9FC /* ellactron */ = {
 			isa = PBXGroup;
 			children = (
+				C3B0975A1F3018F8006DB9FC /* errors */,
+				C3B097501F2ADD0A006DB9FC /* configuration */,
+				C3B0974B1F2997C4006DB9FC /* rest */,
 				C3B0970F1F2827FF006DB9FC /* AppDelegate.swift */,
 				C3B097111F2827FF006DB9FC /* ViewController.swift */,
 				C3B097131F2827FF006DB9FC /* Main.storyboard */,
 				C3B097161F2827FF006DB9FC /* Assets.xcassets */,
 				C3B097181F2827FF006DB9FC /* LaunchScreen.storyboard */,
 				C3B0971B1F2827FF006DB9FC /* Info.plist */,
+				C3B0974E1F2ADCD2006DB9FC /* service.plist */,
 			);
 			path = ellactron;
 			sourceTree = "<group>";
@@ -141,10 +153,34 @@
 		C3B0973E1F28295B006DB9FC /* images */ = {
 			isa = PBXGroup;
 			children = (
-				C3B097411F282EA8006DB9FC /* ic_icon.png */,
-				C3B0973F1F282A26006DB9FC /* banner.png */,
+				C3B097491F291E9B006DB9FC /* ic_icon.png */,
+				C3B097471F291B6D006DB9FC /* banner.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		C3B0974B1F2997C4006DB9FC /* rest */ = {
+			isa = PBXGroup;
+			children = (
+				C3B0974C1F2AC1E4006DB9FC /* RestClient.swift */,
+			);
+			name = rest;
+			sourceTree = "<group>";
+		};
+		C3B097501F2ADD0A006DB9FC /* configuration */ = {
+			isa = PBXGroup;
+			children = (
+				C3B097541F2AE090006DB9FC /* ApplicationConfiguration.swift */,
+			);
+			name = configuration;
+			sourceTree = "<group>";
+		};
+		C3B0975A1F3018F8006DB9FC /* errors */ = {
+			isa = PBXGroup;
+			children = (
+				C3B0975B1F30191C006DB9FC /* Exceptions.swift */,
+			);
+			name = errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +293,9 @@
 				C3B0971A1F2827FF006DB9FC /* LaunchScreen.storyboard in Resources */,
 				C3B097171F2827FF006DB9FC /* Assets.xcassets in Resources */,
 				C3B097151F2827FF006DB9FC /* Main.storyboard in Resources */,
-				C3B097401F282A26006DB9FC /* banner.png in Resources */,
-				C3B097421F282EA8006DB9FC /* ic_icon.png in Resources */,
+				C3B097481F291B6D006DB9FC /* banner.png in Resources */,
+				C3B0974F1F2ADCD2006DB9FC /* service.plist in Resources */,
+				C3B0974A1F291E9B006DB9FC /* ic_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +321,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3B097121F2827FF006DB9FC /* ViewController.swift in Sources */,
+				C3B097671F301DC0006DB9FC /* Exceptions.swift in Sources */,
+				C3B097551F2AE090006DB9FC /* ApplicationConfiguration.swift in Sources */,
+				C3B097651F301CFB006DB9FC /* RestClient.swift in Sources */,
 				C3B097101F2827FF006DB9FC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,6 +483,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.newbeem.ellactron;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -455,6 +496,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.newbeem.ellactron;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -531,6 +573,7 @@
 				C3B097361F2827FF006DB9FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C3B097371F2827FF006DB9FC /* Build configuration list for PBXNativeTarget "ellactronTests" */ = {
 			isa = XCConfigurationList;
@@ -539,6 +582,7 @@
 				C3B097391F2827FF006DB9FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C3B0973A1F2827FF006DB9FC /* Build configuration list for PBXNativeTarget "ellactronUITests" */ = {
 			isa = XCConfigurationList;
@@ -547,6 +591,7 @@
 				C3B0973C1F2827FF006DB9FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

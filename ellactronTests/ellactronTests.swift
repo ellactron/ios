@@ -21,10 +21,25 @@ class ellactronTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testReadPropertiesFromPlist() {
+        assert("www.ellactron.com" == ApplicationConfiguration.getServiceHostname()!)
     }
+    
+    func testHttpGetRequest() {
+        let restClient = RestClient()
+        
+        do {
+            try restClient.get(
+                uri:"https://www.google.com",
+                onCompletion: { (json: Any?, error: Error?) -> Void in
+                    assert(nil == error)
+            } )
+        }
+        catch {
+            print("Invalid url exception")
+        }
+    }
+
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
