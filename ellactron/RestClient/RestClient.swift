@@ -7,8 +7,32 @@
 //
 
 import Foundation
+import Alamofire
 
 class RestClient: NSObject {
+    
+    func getCertificates() -> [SecCertificate] {
+        let localCertificate = ApplicationConfiguration.getCertificates().data(using: .utf8)
+        return [SecCertificateCreateWithData(nil, localCertificate! as CFData)!]
+    }
+    
+    override init() {
+        let serverTrustPolicy = ServerTrustPolicy.pinCertificates(
+            certificates: getCertificates(),
+            validateCertificateChain: true,
+            validateHost: false
+        )
+        
+        let serverTrustPolicies = [ApplicationConfiguration.getServiceHostname(): serverTrustPolicy]
+        let serverTrustPolicyManager = ServerTrustPolicyManager(policies: serverTrustPolicies)
+        
+        // Configure session manager with trust policy
+        let afManager = SessionManager(
+            configuration: URLSessionConfiguration.default,
+            serverTrustPolicyManager: serverTrustPolicyManager
+        )
+    }
+    
     func get(uri: String, onCompletion: @escaping (_ json: Any?, _ error: Error?) -> Void) throws{
         let semaphore = DispatchSemaphore(value: 0)
         
@@ -30,10 +54,20 @@ class RestClient: NSObject {
                 }
                 else {
                     do {
-                        guard let jsonData = try JSONSerialization.jsonObject(with: data as Data!, options: []) as? [String: Any] else {
-                            throw Exceptions.InvalidJsonFormatException(data!)
+                        if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                            print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                            print("response = \(String(describing: response))")
                         }
-                        onCompletion(jsonData, error)
+                        
+                        if let data = data {
+                            let responseString = String(data: data, encoding: .utf8)
+                            print("responseString = \(String(describing: responseString))")
+                        
+                            guard let jsonData = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
+                                throw Exceptions.InvalidJsonFormatException(data)
+                            }
+                            onCompletion(jsonData, error)
+                        }
                     } catch let err {
                         print(err)
                         onCompletion(nil, err)

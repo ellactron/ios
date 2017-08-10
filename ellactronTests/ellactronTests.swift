@@ -30,7 +30,7 @@ class ellactronTests: XCTestCase {
         
         do {
             try restClient.get(
-                uri:"https://www.google.com",
+                uri:"https://www.ellactron.com:8443/login",
                 onCompletion: { (json: Any?, error: Error?) -> Void in
                     assert(nil == error)
             } )
