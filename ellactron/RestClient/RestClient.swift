@@ -6,28 +6,30 @@
 //  Copyright © 2017 NewBeem. All rights reserved.
 //
 
-import Foundation
 import Alamofire
 
 class RestClient: NSObject {
+    var afManager:SessionManager
+    let hostname = "www.ellactron.com"
     
-    func getCertificates() -> [SecCertificate] {
+    
+    static func getCertificates() -> [SecCertificate] {
         let localCertificate = ApplicationConfiguration.getCertificates().data(using: .utf8)
         return [SecCertificateCreateWithData(nil, localCertificate! as CFData)!]
     }
     
     override init() {
         let serverTrustPolicy = ServerTrustPolicy.pinCertificates(
-            certificates: getCertificates(),
+            certificates: RestClient.getCertificates(),
             validateCertificateChain: true,
             validateHost: false
         )
         
-        let serverTrustPolicies = [ApplicationConfiguration.getServiceHostname(): serverTrustPolicy]
+        let serverTrustPolicies = [hostname: serverTrustPolicy]
         let serverTrustPolicyManager = ServerTrustPolicyManager(policies: serverTrustPolicies)
         
         // Configure session manager with trust policy
-        let afManager = SessionManager(
+        afManager = SessionManager(
             configuration: URLSessionConfiguration.default,
             serverTrustPolicyManager: serverTrustPolicyManager
         )
