@@ -13,9 +13,17 @@ class RestClient: NSObject {
     let hostname = "www.ellactron.com"
     
     
-    static func getCertificates() -> [SecCertificate] {
-        let localCertificate = ApplicationConfiguration.getCertificates().data(using: .utf8)
-        return [SecCertificateCreateWithData(nil, localCertificate! as CFData)!]
+    static func getCertificates() -> [SecCertificate]! {
+        /*guard let localCertificate = ApplicationConfiguration.getCertificates().data(using: .utf8) else{
+            return []
+        }*/
+        
+        let pathToCert = Bundle.main.path(forResource: "ios", ofType: "p12")
+        guard let localCertificate:NSData = NSData(contentsOfFile: pathToCert!) else {
+            return []
+        }
+        
+        return [SecCertificateCreateWithData(nil, localCertificate as CFData)!]
     }
     
     override init() {

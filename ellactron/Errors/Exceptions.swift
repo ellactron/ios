@@ -10,4 +10,5 @@ import Foundation
 enum Exceptions : Error {
     case InvalidUrlException(url: String)
     case InvalidJsonFormatException(_ : Data)
+    case invalidCertificate()
 }
