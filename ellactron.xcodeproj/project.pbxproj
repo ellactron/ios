@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C3AE715F1F3D499E0030AB14 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AE71501F3D48B20030AB14 /* Alamofire.framework */; };
+		C3AE71641F3D5A390030AB14 /* ios.p12 in Resources */ = {isa = PBXBuildFile; fileRef = C3AE71631F3D5A390030AB14 /* ios.p12 */; };
+		C3AE71671F3D5F670030AB14 /* PKCS12.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE71661F3D5F670030AB14 /* PKCS12.swift */; };
 		C3B097101F2827FF006DB9FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0970F1F2827FF006DB9FC /* AppDelegate.swift */; };
 		C3B097121F2827FF006DB9FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B097111F2827FF006DB9FC /* ViewController.swift */; };
 		C3B097151F2827FF006DB9FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3B097131F2827FF006DB9FC /* Main.storyboard */; };
@@ -111,6 +113,8 @@
 
 /* Begin PBXFileReference section */
 		C3AE71441F3D48B20030AB14 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		C3AE71631F3D5A390030AB14 /* ios.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; name = ios.p12; path = ellactron/ios.p12; sourceTree = "<group>"; };
+		C3AE71661F3D5F670030AB14 /* PKCS12.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PKCS12.swift; path = security/PKCS12.swift; sourceTree = "<group>"; };
 		C3B0970C1F2827FF006DB9FC /* ellactron.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = ellactron.app; path = "/Users/admin/Desktop/ellactron/build/Debug-iphoneos/ellactron.app"; sourceTree = "<absolute>"; };
 		C3B0970F1F2827FF006DB9FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B097111F2827FF006DB9FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +176,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C3AE71651F3D5F510030AB14 /* security */ = {
+			isa = PBXGroup;
+			children = (
+				C3AE71661F3D5F670030AB14 /* PKCS12.swift */,
+			);
+			name = security;
+			sourceTree = "<group>";
+		};
 		C3B097031F2827FE006DB9FC = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +198,7 @@
 		C3B0970E1F2827FF006DB9FC /* ellactron */ = {
 			isa = PBXGroup;
 			children = (
+				C3AE71651F3D5F510030AB14 /* security */,
 				C3B0975A1F3018F8006DB9FC /* errors */,
 				C3B097501F2ADD0A006DB9FC /* configuration */,
 				C3B0974B1F2997C4006DB9FC /* rest */,
@@ -221,6 +234,7 @@
 		C3B0973D1F282937006DB9FC /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				C3AE71631F3D5A390030AB14 /* ios.p12 */,
 				C3B0973E1F28295B006DB9FC /* images */,
 			);
 			name = resources;
@@ -426,6 +440,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3AE71641F3D5A390030AB14 /* ios.p12 in Resources */,
 				C3B0971A1F2827FF006DB9FC /* LaunchScreen.storyboard in Resources */,
 				C3B097171F2827FF006DB9FC /* Assets.xcassets in Resources */,
 				C3B097151F2827FF006DB9FC /* Main.storyboard in Resources */,
@@ -457,6 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3B097121F2827FF006DB9FC /* ViewController.swift in Sources */,
+				C3AE71671F3D5F670030AB14 /* PKCS12.swift in Sources */,
 				C3B097671F301DC0006DB9FC /* Exceptions.swift in Sources */,
 				C3B097551F2AE090006DB9FC /* ApplicationConfiguration.swift in Sources */,
 				C3B097651F301CFB006DB9FC /* RestClient.swift in Sources */,

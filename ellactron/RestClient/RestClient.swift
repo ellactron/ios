@@ -11,15 +11,9 @@ import Alamofire
 class RestClient: NSObject {
     var afManager:SessionManager
     let hostname = "www.ellactron.com"
-    
-    
+
     static func getCertificates() -> [SecCertificate]! {
-        /*guard let localCertificate = ApplicationConfiguration.getCertificates().data(using: .utf8) else{
-            return []
-        }*/
-        
-        let pathToCert = Bundle.main.path(forResource: "ios", ofType: "p12")
-        guard let localCertificate:NSData = NSData(contentsOfFile: pathToCert!) else {
+        guard let localCertificate = ApplicationConfiguration.getCertificates().data(using: .utf8) else{
             return []
         }
         
@@ -27,22 +21,40 @@ class RestClient: NSObject {
     }
     
     override init() {
+        let cert = PKCS12.init(mainBundleResource: "ios", resourceType: "p12", password: "pa55w0rd");
+        
         let serverTrustPolicy = ServerTrustPolicy.pinCertificates(
-            certificates: RestClient.getCertificates(),
+            certificates: cert.secCertificatesRef,
             validateCertificateChain: true,
             validateHost: false
         )
+
+        let serverTrustPolicies: [String: ServerTrustPolicy]  = [
+            hostname: serverTrustPolicy
+        ]
         
-        let serverTrustPolicies = [hostname: serverTrustPolicy]
-        let serverTrustPolicyManager = ServerTrustPolicyManager(policies: serverTrustPolicies)
-        
-        // Configure session manager with trust policy
+        /* Or:
+        let serverTrustPolicies: [String: ServerTrustPolicy] = [
+            hostname: .disableEvaluation
+        ]
+        */
+
         afManager = SessionManager(
             configuration: URLSessionConfiguration.default,
-            serverTrustPolicyManager: serverTrustPolicyManager
+            serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
         )
+        
+        afManager.delegate.sessionDidReceiveChallenge = { session, challenge in
+            if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodClientCertificate {
+                return (URLSession.AuthChallengeDisposition.useCredential, cert.urlCredential());
+            }
+            if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
+                return (URLSession.AuthChallengeDisposition.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!));
+            }
+            return (URLSession.AuthChallengeDisposition.performDefaultHandling, Optional.none);
+        }
     }
-    
+
     func get(uri: String, onCompletion: @escaping (_ json: Any?, _ error: Error?) -> Void) throws{
         let semaphore = DispatchSemaphore(value: 0)
         
@@ -51,7 +63,7 @@ class RestClient: NSObject {
         }
         
         let request = URLRequest(url:urlPath)
-        let session = URLSession.shared
+        let session = afManager.session
         
         let task = session.dataTask(
             with:request,

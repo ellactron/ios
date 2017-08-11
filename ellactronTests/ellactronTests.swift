@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Alamofire
 @testable import ellactron
 
 class ellactronTests: XCTestCase {
@@ -26,8 +27,10 @@ class ellactronTests: XCTestCase {
     }
     
     func testHttpGetRequest() {
-        let restClient = RestClient()
+        let group = DispatchGroup()
+        group.enter()
         
+        let restClient = RestClient()
         do {
             try restClient.get(
                 uri:"https://www.ellactron.com:8443/login",
