@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C317DBC21F4281E200C5D9EC /* SecureURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C317DBC11F4281E200C5D9EC /* SecureURLProtocol.swift */; };
+		C317DBC41F428B9900C5D9EC /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C317DBC31F428B9900C5D9EC /* RestClient.swift */; };
 		C3AE715F1F3D499E0030AB14 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AE71501F3D48B20030AB14 /* Alamofire.framework */; };
 		C3AE71641F3D5A390030AB14 /* ios.p12 in Resources */ = {isa = PBXBuildFile; fileRef = C3AE71631F3D5A390030AB14 /* ios.p12 */; };
 		C3AE71671F3D5F670030AB14 /* PKCS12.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE71661F3D5F670030AB14 /* PKCS12.swift */; };
@@ -21,7 +23,7 @@
 		C3B0974A1F291E9B006DB9FC /* ic_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B097491F291E9B006DB9FC /* ic_icon.png */; };
 		C3B0974F1F2ADCD2006DB9FC /* service.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3B0974E1F2ADCD2006DB9FC /* service.plist */; };
 		C3B097551F2AE090006DB9FC /* ApplicationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B097541F2AE090006DB9FC /* ApplicationConfiguration.swift */; };
-		C3B097651F301CFB006DB9FC /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0974C1F2AC1E4006DB9FC /* RestClient.swift */; };
+		C3B097651F301CFB006DB9FC /* SecureHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0974C1F2AC1E4006DB9FC /* SecureHttpClient.swift */; };
 		C3B097671F301DC0006DB9FC /* Exceptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0975B1F30191C006DB9FC /* Exceptions.swift */; };
 /* End PBXBuildFile section */
 
@@ -112,25 +114,27 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C317DBB71F42758B00C5D9EC /* ellactron.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ellactron.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C317DBB81F42758B00C5D9EC /* ellactronTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ellactronTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C317DBB91F42758B00C5D9EC /* ellactronUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ellactronUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C317DBC11F4281E200C5D9EC /* SecureURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecureURLProtocol.swift; path = RestClient/SecureURLProtocol.swift; sourceTree = "<group>"; };
+		C317DBC31F428B9900C5D9EC /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestClient.swift; path = RestClient/RestClient.swift; sourceTree = "<group>"; };
 		C3AE71441F3D48B20030AB14 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		C3AE71631F3D5A390030AB14 /* ios.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; name = ios.p12; path = ellactron/ios.p12; sourceTree = "<group>"; };
 		C3AE71661F3D5F670030AB14 /* PKCS12.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PKCS12.swift; path = security/PKCS12.swift; sourceTree = "<group>"; };
-		C3B0970C1F2827FF006DB9FC /* ellactron.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = ellactron.app; path = "/Users/admin/Desktop/ellactron/build/Debug-iphoneos/ellactron.app"; sourceTree = "<absolute>"; };
 		C3B0970F1F2827FF006DB9FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B097111F2827FF006DB9FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C3B097141F2827FF006DB9FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C3B097161F2827FF006DB9FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3B097191F2827FF006DB9FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3B0971B1F2827FF006DB9FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3B097201F2827FF006DB9FC /* ellactronTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ellactronTests.xctest; path = "/Users/admin/Desktop/ellactron/build/Debug-iphoneos/ellactronTests.xctest"; sourceTree = "<absolute>"; };
 		C3B097241F2827FF006DB9FC /* ellactronTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ellactronTests.swift; sourceTree = "<group>"; };
 		C3B097261F2827FF006DB9FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3B0972B1F2827FF006DB9FC /* ellactronUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ellactronUITests.xctest; path = "/Users/admin/Desktop/ellactron/build/Debug-iphoneos/ellactronUITests.xctest"; sourceTree = "<absolute>"; };
 		C3B0972F1F2827FF006DB9FC /* ellactronUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ellactronUITests.swift; sourceTree = "<group>"; };
 		C3B097311F2827FF006DB9FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3B097471F291B6D006DB9FC /* banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = banner.png; path = ellactron/Assets.xcassets/banner.png; sourceTree = "<group>"; };
 		C3B097491F291E9B006DB9FC /* ic_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_icon.png; path = ellactron/Assets.xcassets/ic_icon.png; sourceTree = "<group>"; };
-		C3B0974C1F2AC1E4006DB9FC /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestClient.swift; path = RestClient/RestClient.swift; sourceTree = "<group>"; };
+		C3B0974C1F2AC1E4006DB9FC /* SecureHttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecureHttpClient.swift; path = RestClient/SecureHttpClient.swift; sourceTree = "<group>"; };
 		C3B0974E1F2ADCD2006DB9FC /* service.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = service.plist; sourceTree = "<group>"; };
 		C3B097541F2AE090006DB9FC /* ApplicationConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApplicationConfiguration.swift; path = Configuration/ApplicationConfiguration.swift; sourceTree = "<group>"; };
 		C3B0975B1F30191C006DB9FC /* Exceptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Exceptions.swift; path = Errors/Exceptions.swift; sourceTree = "<group>"; };
@@ -192,6 +196,9 @@
 				C3B0970E1F2827FF006DB9FC /* ellactron */,
 				C3B097231F2827FF006DB9FC /* ellactronTests */,
 				C3B0972E1F2827FF006DB9FC /* ellactronUITests */,
+				C317DBB71F42758B00C5D9EC /* ellactron.app */,
+				C317DBB81F42758B00C5D9EC /* ellactronTests.xctest */,
+				C317DBB91F42758B00C5D9EC /* ellactronUITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -252,7 +259,9 @@
 		C3B0974B1F2997C4006DB9FC /* rest */ = {
 			isa = PBXGroup;
 			children = (
-				C3B0974C1F2AC1E4006DB9FC /* RestClient.swift */,
+				C3B0974C1F2AC1E4006DB9FC /* SecureHttpClient.swift */,
+				C317DBC11F4281E200C5D9EC /* SecureURLProtocol.swift */,
+				C317DBC31F428B9900C5D9EC /* RestClient.swift */,
 			);
 			name = rest;
 			sourceTree = "<group>";
@@ -292,7 +301,7 @@
 			);
 			name = ellactron;
 			productName = ellactron;
-			productReference = C3B0970C1F2827FF006DB9FC /* ellactron.app */;
+			productReference = C317DBB71F42758B00C5D9EC /* ellactron.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C3B0971F1F2827FF006DB9FC /* ellactronTests */ = {
@@ -310,7 +319,7 @@
 			);
 			name = ellactronTests;
 			productName = ellactronTests;
-			productReference = C3B097201F2827FF006DB9FC /* ellactronTests.xctest */;
+			productReference = C317DBB81F42758B00C5D9EC /* ellactronTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		C3B0972A1F2827FF006DB9FC /* ellactronUITests */ = {
@@ -328,7 +337,7 @@
 			);
 			name = ellactronUITests;
 			productName = ellactronUITests;
-			productReference = C3B0972B1F2827FF006DB9FC /* ellactronUITests.xctest */;
+			productReference = C317DBB91F42758B00C5D9EC /* ellactronUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -473,10 +482,12 @@
 			files = (
 				C3B097121F2827FF006DB9FC /* ViewController.swift in Sources */,
 				C3AE71671F3D5F670030AB14 /* PKCS12.swift in Sources */,
+				C317DBC41F428B9900C5D9EC /* RestClient.swift in Sources */,
 				C3B097671F301DC0006DB9FC /* Exceptions.swift in Sources */,
 				C3B097551F2AE090006DB9FC /* ApplicationConfiguration.swift in Sources */,
-				C3B097651F301CFB006DB9FC /* RestClient.swift in Sources */,
+				C3B097651F301CFB006DB9FC /* SecureHttpClient.swift in Sources */,
 				C3B097101F2827FF006DB9FC /* AppDelegate.swift in Sources */,
+				C317DBC21F4281E200C5D9EC /* SecureURLProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

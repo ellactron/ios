@@ -26,17 +26,37 @@ class ellactronTests: XCTestCase {
         assert("www.ellactron.com" == ApplicationConfiguration.getServiceHostname()!)
     }
     
+    
     func testHttpGetRequest() {
         let group = DispatchGroup()
         group.enter()
         
+        let secureHttpClient = SecureHttpClient()
+        do {
+            try secureHttpClient.request(
+                method: "get",
+                uri:"https://www.ellactron.com:8443/login",
+                onCompletion: { (responseString: String?) -> Void in
+                    print("responseString = \(responseString!)") },
+                errorHandler: { (error: String) -> Void in
+                    print("error = \(error)")
+            } )
+        }
+        catch {
+            print("Invalid url exception")
+        }
+    }
+
+    func testSecureURLProtocol() {
         let restClient = RestClient()
         do {
-            try restClient.get(
-                uri:"https://www.ellactron.com:8443/login",
-                onCompletion: { (json: Any?, error: Error?) -> Void in
-                    assert(nil == error)
-            } )
+            try restClient.request(
+            method: "get",
+            url:"https://www.ellactron.com:8443/login",
+            onCompletion: { (responseString: String?) -> Void in
+                print("responseString = \(responseString!)") },
+            errorHandler: { (error: String) -> Void in
+                print("error = \(error)")} )
         }
         catch {
             print("Invalid url exception")
