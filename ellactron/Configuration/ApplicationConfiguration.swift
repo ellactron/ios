@@ -20,5 +20,4 @@ class ApplicationConfiguration: NSObject {
         return hostname as? String
     }
     
-    static var siteToken : String?
 }

@@ -31,7 +31,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lp7-HB-ogJ">
-                                <rect key="frame" x="16" y="134" width="343" height="193"/>
+                                <rect key="frame" x="16" y="134" width="343" height="153"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I2o-JO-wKx">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -53,15 +53,8 @@
                                             <action selector="btnSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6k8-i3-qGP"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbs-lz-9W8">
-                                        <rect key="frame" x="0.0" y="120" width="343" height="30"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Login with Facebook">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZE-fa-hhI">
-                                        <rect key="frame" x="139.5" y="160" width="64" height="33"/>
+                                        <rect key="frame" x="139.5" y="120" width="64" height="33"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" red="0.9215514063835144" green="0.35282611846923828" blue="0.20091333985328674" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -72,12 +65,10 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="fbs-lz-9W8" firstAttribute="leading" secondItem="Lp7-HB-ogJ" secondAttribute="leadingMargin" id="5Pw-eX-LSB"/>
                                     <constraint firstItem="Uja-la-5GA" firstAttribute="leading" secondItem="Lp7-HB-ogJ" secondAttribute="leadingMargin" id="Klo-tG-a7C"/>
                                     <constraint firstItem="I2o-JO-wKx" firstAttribute="leading" secondItem="Lp7-HB-ogJ" secondAttribute="leadingMargin" id="PDD-NN-Vku"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="Uja-la-5GA" secondAttribute="trailing" id="WPc-IU-TUj"/>
                                     <constraint firstItem="VGg-Sb-tEC" firstAttribute="leading" secondItem="Lp7-HB-ogJ" secondAttribute="leadingMargin" id="eKP-if-xlQ"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="fbs-lz-9W8" secondAttribute="trailing" id="lIZ-1D-LCB"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="VGg-Sb-tEC" secondAttribute="trailing" id="p9N-nW-N7r"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="I2o-JO-wKx" secondAttribute="trailing" id="tGh-KC-B05"/>
                                 </constraints>
@@ -101,6 +92,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loginFormStackView" destination="Lp7-HB-ogJ" id="0Sl-K5-G5i"/>
                         <outlet property="textPassword" destination="VGg-Sb-tEC" id="hDr-5i-0gO"/>
                         <outlet property="textUsername" destination="I2o-JO-wKx" id="Amo-wZ-OHw"/>
                     </connections>

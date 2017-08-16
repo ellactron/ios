@@ -11,7 +11,14 @@ import Alamofire
 import UIKit
 
 class SecureURLProtocol: URLProtocol, URLSessionDataDelegate, URLSessionTaskDelegate {
+    static var siteToken : String?
+    
+    
     public struct Const {
+        static let keyPassphase = "pa55w0rd"
+        static let keyFile = "ios"
+        static let keyFileType = "p12"
+        
         static let InterceptorURL = ApplicationConfiguration.getServiceHostname()!
         static let HandledKEy = "SecureURLProtocol"
     }
@@ -23,7 +30,7 @@ class SecureURLProtocol: URLProtocol, URLSessionDataDelegate, URLSessionTaskDele
          cachedResponse: CachedURLResponse?,
          client: URLProtocolClient?) {
         
-        let cert = PKCS12.init(mainBundleResource: "ios", resourceType: "p12", password: "pa55w0rd");
+        let cert = PKCS12.init(mainBundleResource: Const.keyFile, resourceType: Const.keyFileType, password: Const.keyPassphase);
         
         let serverTrustPolicy = ServerTrustPolicy.pinCertificates(
             certificates: cert.secCertificatesRef,
@@ -86,7 +93,7 @@ class SecureURLProtocol: URLProtocol, URLSessionDataDelegate, URLSessionTaskDele
         URLProtocol.setProperty("true", forKey: Const.HandledKEy, in: mutableRequest)
         
         //Add Authorization Token
-        if let token = ApplicationConfiguration.siteToken {
+        if let token = SecureURLProtocol.siteToken {
             let valueString = "Bearer " + token
             mutableRequest.setValue(valueString, forHTTPHeaderField: "Authorization")
         }
