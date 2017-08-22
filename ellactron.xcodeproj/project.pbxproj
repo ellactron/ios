@@ -11,6 +11,8 @@
 		C317DBC41F428B9900C5D9EC /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C317DBC31F428B9900C5D9EC /* RestClient.swift */; };
 		C317DBFB1F43D85000C5D9EC /* FacebookLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317DBF31F43D13000C5D9EC /* FacebookLogin.framework */; };
 		C317DBFF1F43DA3300C5D9EC /* FacebookCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317DBF11F43D13000C5D9EC /* FacebookCore.framework */; };
+		C317DC0C1F45356700C5D9EC /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C317DC0B1F45356700C5D9EC /* UserService.swift */; };
+		C317DC0E1F453C4100C5D9EC /* ServiceSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = C317DC0D1F453C4100C5D9EC /* ServiceSchema.swift */; };
 		C3AE715F1F3D499E0030AB14 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AE71501F3D48B20030AB14 /* Alamofire.framework */; };
 		C3AE71641F3D5A390030AB14 /* ios.p12 in Resources */ = {isa = PBXBuildFile; fileRef = C3AE71631F3D5A390030AB14 /* ios.p12 */; };
 		C3AE71671F3D5F670030AB14 /* PKCS12.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE71661F3D5F670030AB14 /* PKCS12.swift */; };
@@ -159,6 +161,8 @@
 		C317DBE11F43D12F00C5D9EC /* FacebookSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FacebookSwift.xcodeproj; path = "facebook-sdk-swift/FacebookSwift.xcodeproj"; sourceTree = "<group>"; };
 		C317DC041F43F1B900C5D9EC /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "facebook-sdk-swift/Carthage/Checkouts/facebook-ios-sdk/FBSDKLoginKit/build/Debug-iphoneos/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		C317DC061F43F20D00C5D9EC /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "facebook-sdk-swift/Carthage/Checkouts/facebook-ios-sdk/FBSDKCoreKit/build/Debug-iphoneos/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		C317DC0B1F45356700C5D9EC /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = Services/UserService.swift; sourceTree = "<group>"; };
+		C317DC0D1F453C4100C5D9EC /* ServiceSchema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServiceSchema.swift; path = Services/ServiceSchema.swift; sourceTree = "<group>"; };
 		C3AE71441F3D48B20030AB14 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		C3AE71631F3D5A390030AB14 /* ios.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; name = ios.p12; path = ellactron/ios.p12; sourceTree = "<group>"; };
 		C3AE71661F3D5F670030AB14 /* PKCS12.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PKCS12.swift; path = security/PKCS12.swift; sourceTree = "<group>"; };
@@ -227,6 +231,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C317DC0A1F45352100C5D9EC /* service */ = {
+			isa = PBXGroup;
+			children = (
+				C317DC0B1F45356700C5D9EC /* UserService.swift */,
+				C317DC0D1F453C4100C5D9EC /* ServiceSchema.swift */,
+			);
+			name = service;
+			sourceTree = "<group>";
+		};
 		C3AE71451F3D48B20030AB14 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +281,7 @@
 		C3B0970E1F2827FF006DB9FC /* ellactron */ = {
 			isa = PBXGroup;
 			children = (
+				C317DC0A1F45352100C5D9EC /* service */,
 				C3AE71651F3D5F510030AB14 /* security */,
 				C3B0975A1F3018F8006DB9FC /* errors */,
 				C3B097501F2ADD0A006DB9FC /* configuration */,
@@ -572,6 +586,8 @@
 			files = (
 				C3B097121F2827FF006DB9FC /* ViewController.swift in Sources */,
 				C3AE71671F3D5F670030AB14 /* PKCS12.swift in Sources */,
+				C317DC0E1F453C4100C5D9EC /* ServiceSchema.swift in Sources */,
+				C317DC0C1F45356700C5D9EC /* UserService.swift in Sources */,
 				C317DBC41F428B9900C5D9EC /* RestClient.swift in Sources */,
 				C3B097671F301DC0006DB9FC /* Exceptions.swift in Sources */,
 				C3B097551F2AE090006DB9FC /* ApplicationConfiguration.swift in Sources */,

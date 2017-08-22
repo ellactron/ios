@@ -13,7 +13,13 @@ class RestClient: NSObject {
         URLProtocol.registerClass(SecureURLProtocol.self)
     }
     
-    public func request(method: String, url: String, onCompletion: @escaping (_ result: String?) -> Void, errorHandler: @escaping (_ result: String) -> Void) throws {
+    func request(method: String,
+                 url: String,
+                 params: [String:String]?,
+                 contentType: String?,
+                 accept: String?,
+                 onCompletion: @escaping (_ result: String?) -> Void,
+                 errorHandler: @escaping (_ result: String) -> Void) throws {
         let semaphore = DispatchSemaphore(value: 0)
         
         // MARK: Request data
@@ -25,7 +31,17 @@ class RestClient: NSObject {
         request.httpMethod = method
         
         // MARK: Headers
-        //request.setValue("", forHTTPHeaderField: "")
+        if let postString = getPostString(params: params) {
+            request.httpBody = postString.data(using: .utf8)
+            request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        }
+        else if let contentType = contentType {
+            request.addValue(contentType, forHTTPHeaderField: "Content-Type")
+        }
+        
+        if let accept = accept {
+            request.addValue(accept, forHTTPHeaderField: "Accept")
+        }
         
         let session = URLSession.shared
         session.dataTask(with: urlPath, completionHandler: {
@@ -58,5 +74,74 @@ class RestClient: NSObject {
         }).resume()
         
         _ = semaphore.wait(timeout: DispatchTime.distantFuture)
+    }
+
+    
+    func getPostString(params:[String:String]? ) -> String? {
+        if let params = params {
+            var postString:String = ""
+            for (name, value) in params {
+                if "" != postString {
+                    postString += "&"
+                }
+                postString.append(name + "=" + value)
+            }
+            return postString
+        }
+        return nil
+    }
+    
+    
+    func get(url:String,
+             onCompletion: @escaping (_ result: String?) -> Void,
+             errorHandler: @escaping (_ result: String) -> Void) throws {
+        try request(method: "get",
+                    url: url,
+                    params: nil,
+                    contentType: nil,
+                    accept: "application/json",
+                    onCompletion: onCompletion,
+                    errorHandler: errorHandler)
+    }
+    
+    
+    func delete(url:String,
+                onCompletion: @escaping (_ result: String?) -> Void,
+                errorHandler: @escaping (_ result: String) -> Void) throws {
+        try request(method: "delete",
+                    url: url,
+                    params: nil,
+                    contentType: nil,
+                    accept: "application/json",
+                    onCompletion: onCompletion,
+                    errorHandler: errorHandler)
+    }
+    
+    
+    func post(url:String,
+              data:[String:String]?,
+              onCompletion: @escaping (_ result: String?) -> Void,
+              errorHandler: @escaping (_ result: String) -> Void) throws {
+        try request(method: "delete",
+                    url: url,
+                    params: data,
+                    contentType: nil,
+                    accept: "application/json",
+                    onCompletion: onCompletion,
+                    errorHandler: errorHandler)
+    }
+    
+    
+    func put(url:String,
+              data:[String:String]?,
+              onCompletion: @escaping (_ result: String?) -> Void,
+              errorHandler: @escaping (_ result: String) -> Void) throws {
+        try request(method: "put",
+                    url: url,
+                    params: data,
+                    contentType: nil,
+                    accept: "application/json",
+                    onCompletion: onCompletion,
+                    errorHandler: errorHandler)
     }
 }

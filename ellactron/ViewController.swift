@@ -19,21 +19,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
-        if let accessToken = FBSDKAccessToken.current() {
+        
+        // Add Facebook Login button
+        let loginButton = LoginButton(readPermissions: [ .publicProfile ])
+        loginButton.center = view.center
+        view.addSubview(loginButton)
+        
+        if((FBSDKAccessToken.current()) != nil){
             // User is logged in, use 'accessToken' here.
-            print(accessToken)
-            getFBUserData()
-        }
-        else {
-            // Add Facebook Login button
-            let loginButton = LoginButton(readPermissions: [ .publicProfile ])
-            loginButton.center = view.center
-            view.addSubview(loginButton)
+            OpenMainWindow()
         }
     }
-    
-    
+
     //when login button clicked
     @objc func loginButtonClicked() {
         let loginManager = LoginManager()
@@ -44,21 +41,22 @@ class ViewController: UIViewController {
             case .cancelled:
                 print("User cancelled login.")
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                self.getFBUserData()
+                self.OpenMainWindow()
             }
         }
     }
     
     //function is fetching the user data
-    func getFBUserData(){
-        if((FBSDKAccessToken.current()) != nil){
-            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
+    func OpenMainWindow(){
+        if let accessToken = FBSDKAccessToken.current() {
+            let restClient = RestClient()
+            /*FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
                     self.dict = result as! [String : AnyObject]
                     print(result!)
                     print(self.dict)
                 }
-            })
+            })*/
         }
     }
 

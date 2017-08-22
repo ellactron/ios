@@ -46,7 +46,10 @@ class SecureHttpClient: NSObject {
         }
     }
 
-    func request(method: String!, uri: String, onCompletion: @escaping (_ result: String?) -> Void, errorHandler: @escaping (_ result: String) -> Void) throws{
+    func request(method: String!,
+                 uri: String,
+                 onCompletion: @escaping (_ result: String?) -> Void,
+                 errorHandler: @escaping (_ result: String) -> Void) throws{
         let semaphore = DispatchSemaphore(value: 0)
         
         guard let urlPath = URL(string: uri) else {
@@ -62,6 +65,7 @@ class SecureHttpClient: NSObject {
         
         let session = afManager.session
         
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         let task = session.dataTask(
             with:request,
             completionHandler: {
