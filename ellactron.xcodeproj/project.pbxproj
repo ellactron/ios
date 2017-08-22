@@ -290,9 +290,9 @@
 				C3B097111F2827FF006DB9FC /* ViewController.swift */,
 				C3B097131F2827FF006DB9FC /* Main.storyboard */,
 				C3B097161F2827FF006DB9FC /* Assets.xcassets */,
-				C3B097181F2827FF006DB9FC /* LaunchScreen.storyboard */,
 				C3B0971B1F2827FF006DB9FC /* Info.plist */,
 				C3B0974E1F2ADCD2006DB9FC /* service.plist */,
+				C3B097181F2827FF006DB9FC /* LaunchScreen.storyboard */,
 			);
 			path = ellactron;
 			sourceTree = "<group>";

@@ -49,6 +49,7 @@ class ViewController: UIViewController {
     //function is fetching the user data
     func OpenMainWindow(){
         if let accessToken = FBSDKAccessToken.current() {
+            print(String(describing: accessToken.tokenString))
             let restClient = RestClient()
             /*FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){

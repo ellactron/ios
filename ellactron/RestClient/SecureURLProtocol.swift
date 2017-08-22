@@ -19,7 +19,7 @@ class SecureURLProtocol: URLProtocol, URLSessionDataDelegate, URLSessionTaskDele
         static let keyFile = "ios"
         static let keyFileType = "p12"
         
-        static let InterceptorURL = ApplicationConfiguration.getServiceHostname()!
+        static let InterceptorURL = ApplicationConfiguration.getServiceHostname()
         static let HandledKEy = "SecureURLProtocol"
     }
     
@@ -39,7 +39,7 @@ class SecureURLProtocol: URLProtocol, URLSessionDataDelegate, URLSessionTaskDele
         )
         
         let serverTrustPolicies: [String: ServerTrustPolicy]  = [
-            ApplicationConfiguration.getServiceHostname()!: serverTrustPolicy
+            ApplicationConfiguration.getServiceHostname(): serverTrustPolicy
         ]
         
         /* Or:

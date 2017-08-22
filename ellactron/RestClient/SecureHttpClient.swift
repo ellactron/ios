@@ -21,7 +21,7 @@ class SecureHttpClient: NSObject {
         )
 
         let serverTrustPolicies: [String: ServerTrustPolicy]  = [
-            ApplicationConfiguration.getServiceHostname()!: serverTrustPolicy
+            ApplicationConfiguration.getServiceHostname(): serverTrustPolicy
         ]
         
         /* Or:

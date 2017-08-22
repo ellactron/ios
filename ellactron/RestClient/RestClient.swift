@@ -44,7 +44,7 @@ class RestClient: NSObject {
         }
         
         let session = URLSession.shared
-        session.dataTask(with: urlPath, completionHandler: {
+        session.dataTask(with: request, completionHandler: {
             (data, response, error) in
             guard error == nil else {              // check for fundamental networking error
                 errorHandler(String(describing: error))
@@ -122,7 +122,7 @@ class RestClient: NSObject {
               data:[String:String]?,
               onCompletion: @escaping (_ result: String?) -> Void,
               errorHandler: @escaping (_ result: String) -> Void) throws {
-        try request(method: "delete",
+        try request(method: "post",
                     url: url,
                     params: data,
                     contentType: nil,

@@ -23,7 +23,7 @@ class ellactronTests: XCTestCase {
     }
     
     func testReadPropertiesFromPlist() {
-        assert("www.ellactron.com" == ApplicationConfiguration.getServiceHostname()!)
+        assert("www.ellactron.com" == ApplicationConfiguration.getServiceHostname())
     }
     
     
@@ -51,18 +51,30 @@ class ellactronTests: XCTestCase {
         let restClient = RestClient()
         do {
             try restClient.request(
-            method: "get",
-            url:"https://www.ellactron.com:8443/login",
-            onCompletion: { (responseString: String?) -> Void in
-                print("responseString = \(responseString!)") },
-            errorHandler: { (error: String) -> Void in
-                print("error = \(error)")} )
+                method: "get",
+                url:"https://www.ellactron.com:8443/login",
+                params: nil,
+                contentType: nil,
+                accept: nil,
+                onCompletion: { (responseString: String?) -> Void in
+                    print("responseString = \(responseString!)") },
+                errorHandler: { (error: String) -> Void in
+                    print("error = \(error)")} )
         }
         catch {
             print("Invalid url exception")
         }
     }
 
+    
+    func testRegisterUser() {
+        let userService = UserService()
+        userService.register(username: "iosuser@gmail.com", password: "iospasswd",
+                             response: { (responseString: String?) -> Void in
+                                print("responseString = \(responseString!)") },
+                             error: { (error: String) -> Void in
+                                print("error = \(error)")} )
+    }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
