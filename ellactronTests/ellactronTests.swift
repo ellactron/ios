@@ -56,7 +56,7 @@ class ellactronTests: XCTestCase {
                 params: nil,
                 contentType: nil,
                 accept: nil,
-                onCompletion: { (responseString: String?) -> Void in
+                onCompletion: { (responseString: Data?) -> Void in
                     print("responseString = \(responseString!)") },
                 errorHandler: { (error: String) -> Void in
                     print("error = \(error)")} )
@@ -70,7 +70,7 @@ class ellactronTests: XCTestCase {
     func testRegisterUser() {
         let userService = UserService()
         userService.register(username: "iosuser@gmail.com", password: "iospasswd",
-                             response: { (responseString: String?) -> Void in
+                             response: { (responseString: Any?) -> Void in
                                 print("responseString = \(responseString!)") },
                              error: { (error: String) -> Void in
                                 print("error = \(error)")} )

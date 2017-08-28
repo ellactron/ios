@@ -20,9 +20,11 @@ class ApplicationConfiguration: NSObject {
         static let UserServiceName = "UserService"
         static let UIServiceName = "UIService"
     }
+
+    static var token: String?
     
     static let serviceMap : [String: ServiceSchema] = [
-        Cons.UserServiceName: ServiceSchema(),
+        Cons.UserServiceName: ServiceSchema(schema: "http", hostname: ApplicationConfiguration.getServiceHostname(), port: 8080, requestClientCert: false, requestAuth: false),
         Cons.UIServiceName: ServiceSchema(schema: "http", hostname: ApplicationConfiguration.getServiceHostname(), port: 8080, requestClientCert: false, requestAuth: false)
     ]
     

@@ -18,7 +18,7 @@ class RestClient: NSObject {
                  params: [String:String]?,
                  contentType: String?,
                  accept: String?,
-                 onCompletion: @escaping (_ result: String?) -> Void,
+                 onCompletion: @escaping (_ result: Data?) -> Void,
                  errorHandler: @escaping (_ result: String) -> Void) throws {
         let semaphore = DispatchSemaphore(value: 0)
         
@@ -58,7 +58,8 @@ class RestClient: NSObject {
                         /*guard let jsonData = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
                             throw Exceptions.InvalidJsonFormatException(data)
                          }*/
-                        onCompletion(String(data: data, encoding: .utf8))
+                        //onCompletion(String(data: data, encoding: .utf8))
+                        onCompletion(data)
                     }
                     else {
                         // Print HTTP response header detail
@@ -93,7 +94,7 @@ class RestClient: NSObject {
     
     
     func get(url:String,
-             onCompletion: @escaping (_ result: String?) -> Void,
+             onCompletion: @escaping (_ result: Data?) -> Void,
              errorHandler: @escaping (_ result: String) -> Void) throws {
         try request(method: "get",
                     url: url,
@@ -106,7 +107,7 @@ class RestClient: NSObject {
     
     
     func delete(url:String,
-                onCompletion: @escaping (_ result: String?) -> Void,
+                onCompletion: @escaping (_ result: Data?) -> Void,
                 errorHandler: @escaping (_ result: String) -> Void) throws {
         try request(method: "delete",
                     url: url,
@@ -120,7 +121,7 @@ class RestClient: NSObject {
     
     func post(url:String,
               data:[String:String]?,
-              onCompletion: @escaping (_ result: String?) -> Void,
+              onCompletion: @escaping (_ result: Data?) -> Void,
               errorHandler: @escaping (_ result: String) -> Void) throws {
         try request(method: "post",
                     url: url,
@@ -134,7 +135,7 @@ class RestClient: NSObject {
     
     func put(url:String,
               data:[String:String]?,
-              onCompletion: @escaping (_ result: String?) -> Void,
+              onCompletion: @escaping (_ result: Data?) -> Void,
               errorHandler: @escaping (_ result: String) -> Void) throws {
         try request(method: "put",
                     url: url,

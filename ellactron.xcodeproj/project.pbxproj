@@ -29,6 +29,7 @@
 		C3B097551F2AE090006DB9FC /* ApplicationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B097541F2AE090006DB9FC /* ApplicationConfiguration.swift */; };
 		C3B097651F301CFB006DB9FC /* SecureHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0974C1F2AC1E4006DB9FC /* SecureHttpClient.swift */; };
 		C3B097671F301DC0006DB9FC /* Exceptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0975B1F30191C006DB9FC /* Exceptions.swift */; };
+		E41FFD6D1F53BF59006B2837 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41FFD6C1F53BF59006B2837 /* SignUp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +183,7 @@
 		C3B0974E1F2ADCD2006DB9FC /* service.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = service.plist; sourceTree = "<group>"; };
 		C3B097541F2AE090006DB9FC /* ApplicationConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApplicationConfiguration.swift; path = Configuration/ApplicationConfiguration.swift; sourceTree = "<group>"; };
 		C3B0975B1F30191C006DB9FC /* Exceptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Exceptions.swift; path = Errors/Exceptions.swift; sourceTree = "<group>"; };
+		E41FFD6C1F53BF59006B2837 /* SignUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUp.swift; path = SignUp/SignUp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +283,7 @@
 		C3B0970E1F2827FF006DB9FC /* ellactron */ = {
 			isa = PBXGroup;
 			children = (
+				E41FFD611F53B1EE006B2837 /* signUp */,
 				C317DC0A1F45352100C5D9EC /* service */,
 				C3AE71651F3D5F510030AB14 /* security */,
 				C3B0975A1F3018F8006DB9FC /* errors */,
@@ -357,6 +360,14 @@
 				C3B0975B1F30191C006DB9FC /* Exceptions.swift */,
 			);
 			name = errors;
+			sourceTree = "<group>";
+		};
+		E41FFD611F53B1EE006B2837 /* signUp */ = {
+			isa = PBXGroup;
+			children = (
+				E41FFD6C1F53BF59006B2837 /* SignUp.swift */,
+			);
+			name = signUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -587,6 +598,7 @@
 				C3B097121F2827FF006DB9FC /* ViewController.swift in Sources */,
 				C3AE71671F3D5F670030AB14 /* PKCS12.swift in Sources */,
 				C317DC0E1F453C4100C5D9EC /* ServiceSchema.swift in Sources */,
+				E41FFD6D1F53BF59006B2837 /* SignUp.swift in Sources */,
 				C317DC0C1F45356700C5D9EC /* UserService.swift in Sources */,
 				C317DBC41F428B9900C5D9EC /* RestClient.swift in Sources */,
 				C3B097671F301DC0006DB9FC /* Exceptions.swift in Sources */,
