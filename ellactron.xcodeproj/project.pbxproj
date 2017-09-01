@@ -30,6 +30,7 @@
 		C3B097651F301CFB006DB9FC /* SecureHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0974C1F2AC1E4006DB9FC /* SecureHttpClient.swift */; };
 		C3B097671F301DC0006DB9FC /* Exceptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0975B1F30191C006DB9FC /* Exceptions.swift */; };
 		E41FFD6D1F53BF59006B2837 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41FFD6C1F53BF59006B2837 /* SignUp.swift */; };
+		E41FFD791F58F2A5006B2837 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41FFD781F58F2A5006B2837 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,6 +185,7 @@
 		C3B097541F2AE090006DB9FC /* ApplicationConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApplicationConfiguration.swift; path = Configuration/ApplicationConfiguration.swift; sourceTree = "<group>"; };
 		C3B0975B1F30191C006DB9FC /* Exceptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Exceptions.swift; path = Errors/Exceptions.swift; sourceTree = "<group>"; };
 		E41FFD6C1F53BF59006B2837 /* SignUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUp.swift; path = SignUp/SignUp.swift; sourceTree = "<group>"; };
+		E41FFD781F58F2A5006B2837 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +298,7 @@
 				C3B0971B1F2827FF006DB9FC /* Info.plist */,
 				C3B0974E1F2ADCD2006DB9FC /* service.plist */,
 				C3B097181F2827FF006DB9FC /* LaunchScreen.storyboard */,
+				E41FFD781F58F2A5006B2837 /* MainViewController.swift */,
 			);
 			path = ellactron;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				C3B097121F2827FF006DB9FC /* ViewController.swift in Sources */,
 				C3AE71671F3D5F670030AB14 /* PKCS12.swift in Sources */,
 				C317DC0E1F453C4100C5D9EC /* ServiceSchema.swift in Sources */,
+				E41FFD791F58F2A5006B2837 /* MainViewController.swift in Sources */,
 				E41FFD6D1F53BF59006B2837 /* SignUp.swift in Sources */,
 				C317DC0C1F45356700C5D9EC /* UserService.swift in Sources */,
 				C317DBC41F428B9900C5D9EC /* RestClient.swift in Sources */,

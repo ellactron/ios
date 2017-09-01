@@ -51,12 +51,38 @@ class ViewController: UIViewController , LoginButtonDelegate{
         // Dispose of any resources that can be recreated.
     }
 
+
     // MARK: Properties
-    @IBOutlet weak var textUsername: UITextField!
-    @IBOutlet weak var textPassword: UITextField!
+    var username: String = "" {
+        didSet(text) {
+            textUsername?.text = text
+        }
+    }
+    @IBOutlet weak var textUsername: UITextField! {
+        didSet {
+            textUsername.text = username
+        }
+    }
+    
+    var password: String = "" {
+        didSet(text) {
+            textPassword?.text = text
+        }
+    }
+    @IBOutlet weak var textPassword: UITextField! {
+        didSet {
+            textPassword.text = password
+        }
+    }
+
 
     // mark: Actions
     @IBAction func btnSignIn(_ sender: UIButton) {
+        SignIn()
+    }
+    
+    
+    func SignIn() {
         if let username = textUsername.text, let password = textPassword.text {
             userService.getSiteToken(username: username,
                                      password: password,
@@ -67,7 +93,6 @@ class ViewController: UIViewController , LoginButtonDelegate{
                                         } },
                                      error: { (error: String) -> Void in
                                         print("error = \(error)") } )
-            OpenMainWindow()
         }
     }
     
@@ -78,13 +103,13 @@ class ViewController: UIViewController , LoginButtonDelegate{
     //function is fetching the user data
     func OpenMainWindow(){
         if(ApplicationConfiguration.token != nil){
-            // User is logged in, use 'accessToken' here.
-            
+            let viewController: MainViewController = self.storyboard?.instantiateViewController(withIdentifier: "Main.storyboard") as! MainViewController
+            OperationQueue.main.addOperation {
+                self.present(viewController, animated:true, completion:nil)
+            }
         }
         else if let accessToken = FBSDKAccessToken.current() {
             if let socialToken = accessToken.tokenString {
-                print(String(describing: socialToken))
-                
                 userService.getSiteTokenByFacebookToken(facebookAccessToken: socialToken,
                                                         response: { (responseString: Any?) -> Void in
                                                             if let json = responseString as? [String: String] {
@@ -94,8 +119,6 @@ class ViewController: UIViewController , LoginButtonDelegate{
                                                         error: { (error: String) -> Void in
                                                             print("error = \(error)") }
                 )
-                
-                // TODO: Open new windows
             }
             
             // Get user graph

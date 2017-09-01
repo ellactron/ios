@@ -26,10 +26,17 @@ class UserService : RestClient {
         
         do {
             try post(url: getUserServiceUrl() + "/register",
-                     data: params,
-                     onCompletion: {(html) -> Void in
-                        response( try self.convertToJson(jsonString: html)) } as! (Data?) -> Void,
-                     errorHandler: error)
+                    data: params,
+                    onCompletion: {(html) -> Void in
+                        do {
+                            let json = try self.convertToJson(jsonString: html)
+                            response(json)
+                        }
+                        catch let err {
+                            error("Can't convert " + String(describing: html) + " to Json object")
+                        }
+                    },
+                    errorHandler: error)
         }
         catch let err {
             print(String(describing: err))

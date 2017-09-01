@@ -9,6 +9,7 @@
 import UIKit
 
 class SignUpViewController: UIViewController {
+    let userService = UserService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +22,27 @@ class SignUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBOutlet weak var textUsername: UITextField!
+    @IBOutlet weak var textPassword: UITextField!
+    @IBOutlet weak var labelErrorMessage: UILabel!
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func btnSignUp(_ sender: Any) {
+        if let username = textUsername.text, let password = textPassword.text {
+            userService.register(username: username,
+                                 password: password,
+                                 response: { (responseString: Any?) -> Void in
+                                    if let json = responseString {
+                                        let viewController: ViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignIn.storyboard") as! ViewController
+                                        OperationQueue.main.addOperation {
+                                            viewController.username = username
+                                            viewController.password = password
+                                            self.present(viewController, animated:true, completion:nil)
+                                            viewController.SignIn()
+                                        }
+                                    } },
+                                 error: { (error: String) -> Void in
+                                    self.labelErrorMessage.text = error } )
+        }
     }
-    */
 
 }
