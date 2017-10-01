@@ -24,8 +24,8 @@ class ApplicationConfiguration: NSObject {
     static var token: String?
     
     static let serviceMap : [String: ServiceSchema] = [
-        Cons.UserServiceName: ServiceSchema(schema: "http", hostname: ApplicationConfiguration.getServiceHostname(), port: 8080, requestClientCert: false, requestAuth: false),
-        Cons.UIServiceName: ServiceSchema(schema: "http", hostname: ApplicationConfiguration.getServiceHostname(), port: 8080, requestClientCert: false, requestAuth: false)
+        Cons.UserServiceName: ServiceSchema(schema: "https", hostname: ApplicationConfiguration.getServiceHostname(), port: 8443, requestClientCert: false, requestAuth: false),
+        Cons.UIServiceName: ServiceSchema(schema: "https", hostname: ApplicationConfiguration.getServiceHostname(), port: 8443, requestClientCert: false, requestAuth: false)
     ]
     
     static func getServiceBasicUrl (serviceName:String) -> String? {

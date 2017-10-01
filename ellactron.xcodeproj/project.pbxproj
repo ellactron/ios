@@ -31,6 +31,10 @@
 		C3B097671F301DC0006DB9FC /* Exceptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0975B1F30191C006DB9FC /* Exceptions.swift */; };
 		E41FFD6D1F53BF59006B2837 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41FFD6C1F53BF59006B2837 /* SignUp.swift */; };
 		E41FFD791F58F2A5006B2837 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41FFD781F58F2A5006B2837 /* MainViewController.swift */; };
+		E41FFD7B1F5CD2E6006B2837 /* BascViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41FFD7A1F5CD2E6006B2837 /* BascViewController.swift */; };
+		E41FFD7D1F5CD6EC006B2837 /* LocalResourceURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41FFD7C1F5CD6EC006B2837 /* LocalResourceURLProtocol.swift */; };
+		E41FFD7F1F5CDCE5006B2837 /* UIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41FFD7E1F5CDCE5006B2837 /* UIService.swift */; };
+		E41FFD841F5CED2E006B2837 /* static in Resources */ = {isa = PBXBuildFile; fileRef = E41FFD831F5CED2E006B2837 /* static */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +190,10 @@
 		C3B0975B1F30191C006DB9FC /* Exceptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Exceptions.swift; path = Errors/Exceptions.swift; sourceTree = "<group>"; };
 		E41FFD6C1F53BF59006B2837 /* SignUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUp.swift; path = SignUp/SignUp.swift; sourceTree = "<group>"; };
 		E41FFD781F58F2A5006B2837 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E41FFD7A1F5CD2E6006B2837 /* BascViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BascViewController.swift; sourceTree = "<group>"; };
+		E41FFD7C1F5CD6EC006B2837 /* LocalResourceURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalResourceURLProtocol.swift; path = RestClient/LocalResourceURLProtocol.swift; sourceTree = "<group>"; };
+		E41FFD7E1F5CDCE5006B2837 /* UIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIService.swift; path = Services/UIService.swift; sourceTree = "<group>"; };
+		E41FFD831F5CED2E006B2837 /* static */ = {isa = PBXFileReference; lastKnownFileType = folder; name = static; path = ellactron/Resources/static; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +248,7 @@
 			children = (
 				C317DC0B1F45356700C5D9EC /* UserService.swift */,
 				C317DC0D1F453C4100C5D9EC /* ServiceSchema.swift */,
+				E41FFD7E1F5CDCE5006B2837 /* UIService.swift */,
 			);
 			name = service;
 			sourceTree = "<group>";
@@ -299,6 +308,7 @@
 				C3B0974E1F2ADCD2006DB9FC /* service.plist */,
 				C3B097181F2827FF006DB9FC /* LaunchScreen.storyboard */,
 				E41FFD781F58F2A5006B2837 /* MainViewController.swift */,
+				E41FFD7A1F5CD2E6006B2837 /* BascViewController.swift */,
 			);
 			path = ellactron;
 			sourceTree = "<group>";
@@ -324,6 +334,7 @@
 		C3B0973D1F282937006DB9FC /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				E41FFD831F5CED2E006B2837 /* static */,
 				C3AE71631F3D5A390030AB14 /* ios.p12 */,
 				C3B0973E1F28295B006DB9FC /* images */,
 			);
@@ -345,6 +356,7 @@
 				C3B0974C1F2AC1E4006DB9FC /* SecureHttpClient.swift */,
 				C317DBC11F4281E200C5D9EC /* SecureURLProtocol.swift */,
 				C317DBC31F428B9900C5D9EC /* RestClient.swift */,
+				E41FFD7C1F5CD6EC006B2837 /* LocalResourceURLProtocol.swift */,
 			);
 			name = rest;
 			sourceTree = "<group>";
@@ -573,6 +585,7 @@
 				C3B097151F2827FF006DB9FC /* Main.storyboard in Resources */,
 				C3B097481F291B6D006DB9FC /* banner.png in Resources */,
 				C3B0974F1F2ADCD2006DB9FC /* service.plist in Resources */,
+				E41FFD841F5CED2E006B2837 /* static in Resources */,
 				C3B0974A1F291E9B006DB9FC /* ic_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -599,16 +612,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3B097121F2827FF006DB9FC /* ViewController.swift in Sources */,
+				E41FFD7D1F5CD6EC006B2837 /* LocalResourceURLProtocol.swift in Sources */,
 				C3AE71671F3D5F670030AB14 /* PKCS12.swift in Sources */,
 				C317DC0E1F453C4100C5D9EC /* ServiceSchema.swift in Sources */,
 				E41FFD791F58F2A5006B2837 /* MainViewController.swift in Sources */,
 				E41FFD6D1F53BF59006B2837 /* SignUp.swift in Sources */,
 				C317DC0C1F45356700C5D9EC /* UserService.swift in Sources */,
+				E41FFD7F1F5CDCE5006B2837 /* UIService.swift in Sources */,
 				C317DBC41F428B9900C5D9EC /* RestClient.swift in Sources */,
 				C3B097671F301DC0006DB9FC /* Exceptions.swift in Sources */,
 				C3B097551F2AE090006DB9FC /* ApplicationConfiguration.swift in Sources */,
 				C3B097651F301CFB006DB9FC /* SecureHttpClient.swift in Sources */,
 				C3B097101F2827FF006DB9FC /* AppDelegate.swift in Sources */,
+				E41FFD7B1F5CD2E6006B2837 /* BascViewController.swift in Sources */,
 				C317DBC21F4281E200C5D9EC /* SecureURLProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

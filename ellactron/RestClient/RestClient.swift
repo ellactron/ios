@@ -11,6 +11,7 @@ import Foundation
 class RestClient: NSObject {
     override init() {
         URLProtocol.registerClass(SecureURLProtocol.self)
+        URLProtocol.registerClass(LocalResourceURLProtocol.self)
     }
     
     func request(method: String,

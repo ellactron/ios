@@ -8,28 +8,28 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: BaseViewController, UIWebViewDelegate {
+    fileprivate var myWebView:UIWebView?
 
+    // MARK: Initial methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        addWebView()
+        
+        let url = URL(string: UIService.getMainPage())
+        let request = URLRequest(url: url!)
+        myWebView!.loadRequest(request)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func addWebView() {
+        myWebView = UIWebView(
+            frame: CGRect(x: barNavigation.frame.origin.x,
+                          y: barNavigation.frame.origin.y + barNavigation.bounds.height,
+                          width: barNavigation.frame.origin.x + barNavigation.bounds.width,
+                          height: UIScreen.main.bounds.height - (barNavigation.frame.origin.y + barNavigation.bounds.height)))
+        
+        myWebView!.delegate = self
+        self.view.addSubview(myWebView!)
     }
-    */
-
+    
 }
