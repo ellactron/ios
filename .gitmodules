@@ -1,3 +1,6 @@
 [submodule "Alamofire"]
 	path = Alamofire
 	url = https://github.com/Alamofire/Alamofire.git
+[submodule "facebook-sdk-swift"]
+	path = facebook-sdk-swift
+	url = https://github.com/facebook/facebook-sdk-swift.git
