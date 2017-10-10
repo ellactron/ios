@@ -55,12 +55,13 @@ class LocalResourceURLProtocol: URLProtocol, URLSessionDataDelegate, URLSessionT
         let urlParts = requestUrl.absoluteString.components(separatedBy: Const.localResource)
         
         if (urlParts.count > 1) {
-            let fileName = urlParts[1]
-        
+            let fileName = urlParts[1].components(separatedBy: "/").last!
+            let path = "static/" + urlParts[1].components(separatedBy: fileName).first!
+
             let parts = fileName.components(separatedBy: ".")
 
             // reply with data from a local file
-            if let path = Bundle.main.path(forResource: parts[0], ofType: parts[1], inDirectory: "static") {
+            if let path = Bundle.main.path(forResource: fileName.components(separatedBy: "."+parts[parts.count-1]).first!, ofType: parts[parts.count-1], inDirectory: path) {
                 let data = NSData(contentsOfFile: path)
             
                 let response = URLResponse(url: requestUrl, mimeType: getMiniType(_: parts[1]), expectedContentLength: (data! as Data).count, textEncodingName: nil)
